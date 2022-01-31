@@ -1,4 +1,5 @@
 from pydoc import describe
+from turtle import title
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,7 +11,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-list_dict = [
+list_dict = [ 
     {
         'id': 1,
         'title': 'E-commerce project',
@@ -27,6 +28,7 @@ list_dict = [
         'title': 'Python web',
         'description': 'This website for learning python'
     },
+ 
 
 ]
 
@@ -38,9 +40,12 @@ def project(request):
     return render(request, 'project/projects.html', context)
 
 
-def singles(request, pk):
+def projects(request, pk):
     projectobj = None
     for i in list_dict:
         if i['id'] == pk:
             projectobj = i
-    return render(request, 'project/single-project.html', {'singles': projectobj},)
+    return render(request, 'project/single-project.html', {
+        'projects': projectobj,
+        'list_dict': list_dict,
+    }, )
