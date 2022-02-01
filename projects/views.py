@@ -41,7 +41,7 @@ def project(request):
 
 
 def projects(request, pk):
-    projectobj = None
+    projectobj = None 
     for i in list_dict:
         if i['id'] == pk:
             projectobj = i
