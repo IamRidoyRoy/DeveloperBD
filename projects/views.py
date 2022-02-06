@@ -5,21 +5,22 @@ from django.shortcuts import render
 # Create your views here.
 from unicodedata import name
 from django.shortcuts import HttpResponse
+from .models import Project
 
 
 def about(request):
     return render(request, 'about.html')
 
 
-list_dict = [ 
+list_dict = [
     {
         'id': 1,
         'title': 'E-commerce project',
         'description': 'This is a full featured e-commerce website'
     },
     {
-        'id' : 2,
-        'title' : 'Blog Web',
+        'id': 2,
+        'title': 'Blog Web',
         'description': 'This is public blogsite'
     },
 
@@ -28,24 +29,21 @@ list_dict = [
         'title': 'Python web',
         'description': 'This website for learning python'
     },
- 
+
 
 ]
 
 
 def project(request):
-    msg = "You are in the project page"
-    number = 10
-    context = {'message': msg, 'Number': number, 'list_dict':list_dict}
+    allproject = Project.objects.all()
+    context = {'allproject': allproject}
     return render(request, 'project/projects.html', context)
 
 
-def projects(request, pk):
-    projectobj = None 
-    for i in list_dict:
-        if i['id'] == pk:
-            projectobj = i
+def singleproject(request, pk):
+    projectobj = Project.objects.get(id=pk)
+    # print('projectobj:', projectobj)
     return render(request, 'project/single-project.html', {
-        'projects': projectobj,
-        'list_dict': list_dict,
-    }, )
+        'projectobj': projectobj,
+    }, 
+    )

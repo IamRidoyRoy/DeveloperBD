@@ -18,9 +18,30 @@
 <h1>This is project page</h1>
 <hr>
 
+<table>
+        <tr>
+                <th>ID</th>
+                <th>Project</th>
+                <th>Positive Votes</th>
+                <th>Votes</th>
+                <th></th>
+        </tr>
+        {% for projects in allproject %}
+        <tr>
+                <td>{{projects.id}}</td>
+                <td>{{projects.title}}</td>
+                <td>{{projects.vote_ratio}}%</td>
+                <td>{{projects.vote_total}}</td>
+                <td>{{projects.created}}</td>
+                <td><a href="{% url 'projects' projects.id %}">View</a></td>
+        </tr>
+        {% endfor %}
+</table>ss
+<h1>All Projects</h1>
+<hr>
 <ul> 
-        {% for list_dict in list_dict %}
-        <li>{{ list_dict.title }} -- {{list_dict.description}}</li>
+        {% for projects in allproject %}
+        <li><a href="{% url 'projects' projects.id %}">{{ projects.title }}</a> -- {{projects.description}}</li>
         {% endfor %}  
 </ul>
 

@@ -3,8 +3,13 @@
 {% block content %}
 {{ message }}
 
-<h3>{{ projects.id }}</h3>
-{{ message }}
+<h3>{{ projectobj.title }}</h3>
+<hr>
+
+{% for tag in projectobj.tags.all %}
+    <span style="border: 1px solid gray ;">{{ tag }}</span>
+{%  endfor %}
+{{ projectobj.description }}
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus enim necessitatibus aperiam, cum fuga eius consectetur eos amet quos tenetur recusandae sed sunt eligendi vel, laboriosam alias nostrum, ad eveniet.</p>
 {% endblock %}
