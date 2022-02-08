@@ -5,8 +5,8 @@
 
 <h3>{{ projectobj.title }}</h3>
 <hr>
-<img src="{{ projectobj.featured_image.url }}" alt="">
-
+<img style="width: 400px;" src="{{ projectobj.featured_image.url }}" alt="">
+<br>
 {% for tag in projectobj.tags.all %}
 <span style="border: 1px solid gray ;">{{ tag }}</span>
 {% endfor %} <br><br>
