@@ -8,7 +8,7 @@
 
 {% for tag in projectobj.tags.all %}
     <span style="border: 1px solid gray ;">{{ tag }}</span>
-{%  endfor %}
-{{ projectobj.description }}
+{%  endfor %} <br><br>
+{{ projectobj.description }} <br>
 
 {% endblock %}
