@@ -20,15 +20,16 @@
 
 <table>
         <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Project</th>
-                <th>Positive Votes</th>
+                <th>PositiveVotes</th>
                 <th>Votes</th>
-                <th></th>
+                <th>Date</th>
+                <th>View</th>
         </tr>
         {% for projects in allproject %}
         <tr>
-                <td>{{projects.id}}</td>
+                <!-- <td>{{projects.id}}</td> -->
                 <td>{{projects.title}}</td>
                 <td>{{projects.vote_ratio}}%</td>
                 <td>{{projects.vote_total}}</td>

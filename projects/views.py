@@ -1,7 +1,7 @@
 from multiprocessing import context
 from pydoc import describe
 from turtle import title
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 # Create your views here.
 from unicodedata import name
 from django.shortcuts import HttpResponse
@@ -25,6 +25,9 @@ def singleproject(request, pk):
 
 
 def createProject(request):
-    form = ProjectForm()
+    form = ProjectForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('project')
     context = {'form': form}
     return render(request, "project/project_form.html", context)
