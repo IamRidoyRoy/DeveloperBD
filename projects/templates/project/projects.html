@@ -25,6 +25,7 @@
                 <th>PositiveVotes</th>
                 <th>Votes</th>
                 <th>Date</th>
+                <th>Edit</th>
                 <th>View</th>
         </tr>
         {% for projects in allproject %}
@@ -34,6 +35,7 @@
                 <td>{{projects.vote_ratio}}%</td>
                 <td>{{projects.vote_total}}</td>
                 <td>{{projects.created}}</td>
+                <td><a href="{% url 'update-project' projects.id %}">Edit</a></td>
                 <td><a href="{% url 'projects' projects.id %}">View</a></td>
         </tr>
         {% endfor %}
@@ -44,10 +46,7 @@
         {% for projects in allproject %}
         <li><a href="{% url 'projects' projects.id %}">{{ projects.title }}</a> -- {{projects.description}}</li>
         {% endfor %}  
-</ul>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corporis laboriosam nisi a exercitationem eius ad nulla et voluptatem at? Numquam dolores aut nesciunt voluptates ipsam tempore vero, sunt fuga, dolore soluta mollitia ratione, eos corrupti molestias possimus! Quae quam asperiores blanditiis adipisci quaerat cupiditate maiores earum, ex expedita neque
-   
+</ul>   
 
 
 
